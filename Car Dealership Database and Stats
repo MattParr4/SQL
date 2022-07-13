@@ -1,0 +1,32 @@
+create table cars (id INTEGER PRIMARY KEY, make TEXT, model TEXT, year integer, miles integer, price integer);
+
+insert INTO cars VALUES
+(1,"Ford","Taurus",2009,25000, 25000),
+(2,"Ford", "Taurus",1986, 3050, 5500),
+(3,"Ford", "Escape", 1999, 150000, 2300),
+(4,"Ford", "Escape", 2020, 51, 75340),
+(5,"Ford", "Focus", 2011, 45376, 4500),
+(6, "Chevy", "Impala", 2003, 47000, 2300),
+(7, "Chevy", "Corvette", 1976, 23000, 150000),
+(8, "Chevy", "Silverado", 1981, 10000, 73000),
+(9, "Chevy", "Corvette", 2021, 13, 231000),
+(10, "Chevy", "Corvette", 2022, 4, 400000),
+(11, "Dodge", "Durango", 1993, 320000, 1500),
+(12,"Dodge", "Dart", 2010, 45000, 14000),
+(13,"Dodge", "Dart", 2001, 3400, 23000),
+(14,"Dodge", "Dart", 2000, 165000, 4323),
+(15,"Dodge", "Charger", 2007, 23000, 89000)
+;
+
+SELECT * FROM cars ORDER BY year desc;
+
+SELECT * FROM cars 
+WHERE year<2000
+AND price<50000
+ORDER BY miles
+;
+
+SELECT make, SUM(price) from cars
+group by make
+
+
