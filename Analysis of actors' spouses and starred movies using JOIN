@@ -1,0 +1,33 @@
+/* Create table about the people and what they do here */
+
+create table stars (id integer primary key, name text, spouse_id integer);
+
+create table movies (id integer primary key, stars_id integer, name text);
+
+insert into stars values (1,"Bob",3);
+insert into stars values (2,"Jim",4);
+insert into stars values (3,"Jane",1);
+insert into stars values (4,"Hailey",2);
+
+insert into movies values (1,1,"Die Hard");
+insert into movies values (2,1,"Star Wars");
+insert into movies values (3,4,"Liberty");
+insert into movies values (4,3,"Try Again");
+insert into movies values (5,3, "Here We Go");
+insert into movies values (6,3, "Besties");
+
+select * from stars;
+select * from movies; 
+
+/* Who is married to whom */
+select stars.name, spouses.name as spouse_name from stars
+    join stars spouses
+    on stars.spouse_id = spouses.id;
+    /* Can make a third table with just matching spouse IDs to 
+        clean up this output */
+    
+/*Display the star name of each movie */
+select movies.name, stars.name as lead_actor from movies
+    join stars
+    on movies.stars_id = stars.id
+    group by movies.name;
